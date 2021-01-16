@@ -4,10 +4,12 @@ const catchError = async (ctx, next) => {
   try {
     await next();
   } catch (error) {
-    if (global.config.environment === "dev") {
+    const isDev = global.config.environment === 'dev';
+    const isHttpException = error instanceof HttpException;
+    if (isDev && !isHttpException) {
       throw error;
     }
-    if (error instanceof HttpException) {
+    if (isHttpException) {
       ctx.body = {
         msg: error.msg,
         error_code: error.errorCode,
@@ -16,7 +18,7 @@ const catchError = async (ctx, next) => {
       ctx.status = error.code;
     } else {
       ctx.body = {
-        msg: "we made a mistake!",
+        msg: 'we made a mistake!',
         error_code: 999,
         request: `${ctx.method} ${ctx.path}`,
       };
