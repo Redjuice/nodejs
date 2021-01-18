@@ -1,5 +1,5 @@
-const requireDirectory = require("require-directory");
-const Router = require("koa-router");
+const requireDirectory = require('require-directory');
+const Router = require('koa-router');
 
 class InitManager {
   static initCore(app) {
@@ -7,10 +7,11 @@ class InitManager {
     InitManager.app = app;
     InitManager.initLoadRoutes();
     InitManager.loadConfig();
+    InitManager.loaderHttpException();
   }
 
-  static loadConfig(path = "") {
-    const configPath = path || process.cwd() + "/config/config.js";
+  static loadConfig(path = '') {
+    const configPath = path || process.cwd() + '/config/config.js';
     const config = require(configPath);
     global.config = config;
   }
@@ -24,6 +25,11 @@ class InitManager {
     };
 
     requireDirectory(module, apiDirectory, { visit: whileLoadModule });
+  }
+
+  static loaderHttpException() {
+    const errors = require('./http-exception');
+    global.errs = errors;
   }
 }
 
