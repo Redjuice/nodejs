@@ -1,10 +1,14 @@
-module.exports = { 
-  environment: "dev",
+module.exports = {
+  environment: 'dev',
   database: {
-    dbName: "7yue",
-    host: "localhost",
+    dbName: '7yue',
+    host: 'localhost',
     port: 3306,
-    user: "root",
-    password: "root"
-  }
-}
+    user: 'root',
+    password: 'root',
+  },
+  security: {
+    secretKey: 'abcdefg',
+    expiresIn: 60 * 60 * 24 * 30,
+  },
+};

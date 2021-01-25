@@ -19,10 +19,32 @@ class ParameterException extends HttpException {
 class Success extends HttpException {
   constructor(msg = 'ok', errorCode = 0) {
     super();
+    this.msg = msg;
+    this.errorCode = errorCode;
     this.code = 201;
+  }
+}
+class NotFound extends HttpException {
+  constructor(msg = '资源未找到', errorCode = 10000) {
+    super();
+    this.msg = msg;
+    this.errorCode = errorCode;
+    this.code = 404;
+  }
+}
+class AuthFailed extends HttpException {
+  constructor(msg = '授权失败', errorCode = 10004) {
+    super();
+    this.code = 401;
     this.msg = msg;
     this.errorCode = errorCode;
   }
 }
 
-module.exports = { HttpException, ParameterException, Success };
+module.exports = {
+  HttpException,
+  ParameterException,
+  Success,
+  NotFound,
+  AuthFailed,
+};

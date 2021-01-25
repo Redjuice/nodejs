@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 const findMembers = function (instance, { prefix, specifiedType, filter }) {
   // 递归函数
@@ -30,9 +30,6 @@ const findMembers = function (instance, { prefix, specifiedType, filter }) {
 };
 
 const generateToken = function (uid, scope) {
-  //把令牌写在utils中为了后续方便调用，还有很多处需要用到令牌
-  //jwt生成令牌接收三个参数，第一个payload我们自定义的对象，第二个secretkey私有钥匙
-  //第三个参数是可选配置项，一般是过期时间
   const secretKey = global.config.security.secretKey;
   const expiresIn = global.config.security.expiresIn;
   const token = jwt.sign(
@@ -42,7 +39,7 @@ const generateToken = function (uid, scope) {
     },
     secretKey,
     {
-      expiresIn: expiresIn,
+      expiresIn,
     }
   );
   return token;
