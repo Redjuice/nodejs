@@ -1,0 +1,2 @@
+<button bind:tap="onGetToken">获取Token</button>
+<button bind:tap="onGetToken">验证Token</button>

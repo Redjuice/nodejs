@@ -13,7 +13,6 @@ class WXManager {
       code
     );
 
-    const res = await axios.get(url);
     const { status, data } = await axios.get(url);
     if (status !== 200) {
       throw new global.errs.AuthFailed('openid获取失败');
