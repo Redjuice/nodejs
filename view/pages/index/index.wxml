@@ -1,2 +1,5 @@
 <button bind:tap="onGetToken">获取Token</button>
-<button bind:tap="onGetToken">验证Token</button>
+<button bind:tap="onVerifyToken">验证Token</button>
+<button bind:tap="onGetLatest">获取最新期刊</button>
+<button bind:tap="onLike">点赞</button>
+<button bind:tap="onDislike">取消点赞</button>

@@ -1,11 +1,18 @@
-const Router = require("koa-router");
+const Router = require('koa-router');
 const { Auth } = require('../../../middlewares/auth');
+const { Flow } = require('../../models/flow');
+const { Art } = require('../../models/art');
 const router = new Router({
-  prefix: '/v1/classic'
+  prefix: '/v1/classic',
 });
 
-router.get("/latest", new Auth().m, (ctx, next) => {
-  ctx.body = ctx.auth;
+router.get('/latest', new Auth().m, async (ctx, next) => {
+  const flow = await Flow.findOne({
+    order: [['index', 'DESC']],
+  });
+  const art = await Art.getData(flow.art_id, flow.type);
+  art.setDataValue('index', flow.index)
+  ctx.body = flow;
 });
 
 module.exports = router;

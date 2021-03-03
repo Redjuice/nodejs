@@ -21,17 +21,20 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true
@@ -39,7 +42,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.15.0",
   "appid": "wxe0a364749b3d45b4",
-  "projectname": "test",
+  "projectname": "koa2",
   "debugOptions": {
     "hidedInDevtools": []
   },
