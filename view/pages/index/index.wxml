@@ -1,5 +1,12 @@
 <button bind:tap="onGetToken">获取Token</button>
 <button bind:tap="onVerifyToken">验证Token</button>
-<button bind:tap="onGetLatest">获取最新期刊</button>
-<button bind:tap="onLike">点赞</button>
-<button bind:tap="onDislike">取消点赞</button>
+
+<button type="primary" bind:tap="onGetLatest">获取最新期刊</button>
+<button type="primary" bind:tap="onGetLatest">获取下一期</button>
+<button type="primary" bind:tap="onGetLatest">获取上一期</button>
+<button type="primary" bind:tap="onGetFavorInfo">获取点赞信息</button>
+<button type="primary" bind:tap="onGetClassicFavor">获取我喜欢的期刊</button>
+<button type="primary" bind:tap="onGetDetail">获取期刊详情</button>
+
+<button type="warn" bind:tap="onLike">点赞</button>
+<button type="warn" bind:tap="onDislike">取消点赞</button>

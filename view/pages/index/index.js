@@ -36,6 +36,9 @@ Page({
       },
     });
   },
+
+
+
   // 获取最新期刊
   onGetLatest() {
     wx.request({
@@ -49,13 +52,55 @@ Page({
       },
     });
   },
+  // 获取点赞信息
+  onGetFavorInfo() {
+    wx.request({
+      url: 'http://localhost:3000/v1/classic/100/1/favor',
+      method: 'GET',
+      header: {
+        Authorization: this._encode()
+      },
+      success: (res) => {
+        console.log(res.data);
+      },
+    });
+  },
+  // 获取我喜欢的期刊
+  onGetClassicFavor() {
+    wx.request({
+      url: 'http://localhost:3000/v1/classic/favor',
+      method: 'GET',
+      header: {
+        Authorization: this._encode()
+      },
+      success: (res) => {
+        console.log(res.data);
+      },
+    });
+  },
+  // 获取期刊详情
+  onGetDetail() {
+    wx.request({
+      url: 'http://localhost:3000/v1/classic/100/1',
+      method: 'GET',
+      header: {
+        Authorization: this._encode()
+      },
+      success: (res) => {
+        console.log(res.data);
+      },
+    });
+  },
+
+
+
   // 点赞
   onLike() {
     wx.request({
       url: 'http://localhost:3000/v1/like',
       method: 'POST',
       data: {
-        art_id: 1,
+        art_id: 2,
         type: 100
       },
       header: {
